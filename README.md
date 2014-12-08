@@ -17,6 +17,7 @@
   * ceph-deploy gatherkeys ceph-mon-1
   * sudo sudo cp ceph.client.admin.keyring /etc/ceph/
   * vi ceph.conf
+```
  [global]
  fsid = f445846b-fdcc-4e8d-8499-37d9ace02f89
  mon_initial_members = ceph-mon-1,ceph-mon-2,ceph-mon-3
@@ -27,6 +28,7 @@
  filestore_xattr_use_omap = true
  osd_journal_size = 1024
  public_network = 172.21.12.0/24
+ ```
   * ceph-deploy --overwrite-conf config push ceph-admin ceph-mon-1 ceph-mon-2 ceph-mon-3
   * ceph -s
 ```
