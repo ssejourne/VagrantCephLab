@@ -15,6 +15,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.ssh.forward_agent = true
   unless ENV["VAGRANT_NO_PLUGINS"]
+    required_plugins = %w( vagrant-hostmanager vagrant-cachier )
+    required_plugins.each do |plugin|
+      system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
+    end
+
     # $ vagrant plugin install vagrant-hostmanager
     if Vagrant.has_plugin?("vagrant-hostmanager")
       config.hostmanager.enabled = true
